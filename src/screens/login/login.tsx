@@ -54,7 +54,7 @@ export default function LoginScreen() {
       <LogoContainer>
         <Image
           source={require("../../assets/images/dogIa.jpg")}
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: '100%', height: "100%" }}
           resizeMode="cover"
         />
       </LogoContainer>
