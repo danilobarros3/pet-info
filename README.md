@@ -1,50 +1,19 @@
-# Welcome to your Expo app 👋
+# PetInfo - Projeto Pessoal - React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+O PetInfo é um aplicativo de carteira digital para animais de estimação, projetado para facilitar o acesso rápido e conveniente às informações de saúde do seu pet durante visitas veterinárias. Com o PetSpot, você não precisa mais se preocupar em perder ou esquecer a carteirinha de vacinação do seu animal.
 
-## Get started
+## Recursos
 
-1. Install dependencies
+- Armazene informações de saúde do seu pet, como vacinas, medicamentos e alergias.
+- Acesse facilmente os dados do seu pet durante consultas veterinárias.
+- Adicione múltiplos pets à sua conta.
+- Interface amigável e intuitiva.
 
-   ```bash
-   npm install
-   ```
+## Tecnologias Utilizadas
 
-2. Start the app
+- **TypeScript**: Linguagem de programação para o desenvolvimento do frontend, oferecendo tipagem estática para um código mais seguro e robusto.
+- **Styled Components**: Biblioteca para estilização de componentes no React, proporcionando uma maneira de escrever CSS dentro do JavaScript e facilitando a criação de estilos dinâmicos e reutilizáveis.
+- **React Native**: Framework para desenvolvimento de aplicativos móveis, permitindo criar aplicativos nativos para iOS e Android utilizando JavaScript e React.
 
-   ```bash
-    npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
