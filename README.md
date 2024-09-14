@@ -1,6 +1,6 @@
 # PetInfo - Projeto Pessoal - React Native
 
-O PetInfo é um aplicativo de carteira digital para animais de estimação, projetado para facilitar o acesso rápido e conveniente às informações de saúde do seu pet durante visitas veterinárias. Com o PetSpot, você não precisa mais se preocupar em perder ou esquecer a carteirinha de vacinação do seu animal.
+O PetInfo é um aplicativo criado em ReactNative. Para uma carteira digital para animais de estimação, projetado para facilitar o acesso rápido e conveniente às informações de saúde do seu pet durante visitas veterinárias. Com o PetSpot, você não precisa mais se preocupar em perder ou esquecer a carteirinha de vacinação do seu animal.
 
 ## Recursos
 
