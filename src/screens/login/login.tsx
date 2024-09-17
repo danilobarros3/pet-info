@@ -3,9 +3,6 @@ import { Image } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-import { ILoginInfo } from "@/types/loginInfo";
-import api from "@/services";
 import {
   Container,
   LogoContainer,
@@ -22,9 +19,13 @@ import {
   RegisterAccount,
   RegisterAccountContainer,
   RegisterAccountText,
-  SafeContainer
+  SafeContainer,
 } from "./style";
-import { Footer } from "@/components/Footer/footer";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { FooterCopy } from "../../components/FooterCopy/footercopy";
+import api from "../../services";
+import { ILoginInfo } from "../../types/loginInfo";
+import { RootStackParamList } from "../../routes/Router";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Email inválido").required("Email é obrigatório"),
@@ -35,6 +36,7 @@ const validationSchema = Yup.object().shape({
 
 export default function LoginScreen() {
   const [loading, setLoading] = useState(false);
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const handleLogin = async (values: ILoginInfo) => {
     setLoading(true);
@@ -48,81 +50,85 @@ export default function LoginScreen() {
     }
   };
 
+  const handleRegister = () => {
+    navigation.navigate("Register");
+  };
+
   return (
-    <SafeContainer >
-    <Container>
-      <LogoContainer>
-        <Image
-          source={require("../../assets/images/dogIa.jpg")}
-          style={{ width: '100%', height: "100%" }}
-          resizeMode="cover"
-        />
-      </LogoContainer>
-      <ValidationContainer>
-        <DivTitle>
+    <SafeContainer>
+      <Container>
+        <LogoContainer>
           <Image
-            source={require("../../assets/images/image2.png")}
-            style={{ width: 50, height: 50 }}
-            resizeMode="contain"
+            source={require("../../assets/images/dogIa.jpg")}
+            style={{ width: "100%", height: "100%" }}
+            resizeMode="cover"
           />
-          <Title>Sejam bem-vindos ao PETINFO!</Title>
-        </DivTitle>
-        <Formik
-          initialValues={{ email: "", password: "" }}
-          validationSchema={validationSchema}
-          onSubmit={handleLogin}
-        >
-          {({
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            values,
-            errors,
-            touched,
-          }) => (
-            <>
-              <InputField
-                placeholder="Email"
-                onChangeText={handleChange("email")}
-                onBlur={handleBlur("email")}
-                value={values.email}
-              />
-              {touched.email && errors.email ? (
-                <ErrorMessage>{errors.email}</ErrorMessage>
-              ) : null}
+        </LogoContainer>
+        <ValidationContainer>
+          <DivTitle>
+            <Image
+              source={require("../../assets/images/image2.png")}
+              style={{ width: 50, height: 50 }}
+              resizeMode="contain"
+            />
+            <Title>Sejam bem-vindos ao PETINFO!</Title>
+          </DivTitle>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={validationSchema}
+            onSubmit={handleLogin}
+          >
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              errors,
+              touched,
+            }) => (
+              <>
+                <InputField
+                  placeholder="Email"
+                  onChangeText={handleChange("email")}
+                  onBlur={handleBlur("email")}
+                  value={values.email}
+                />
+                {touched.email && errors.email ? (
+                  <ErrorMessage>{errors.email}</ErrorMessage>
+                ) : null}
 
-              <InputField
-                placeholder="Password"
-                secureTextEntry
-                onChangeText={handleChange("password")}
-                onBlur={handleBlur("password")}
-                value={values.password}
-              />
-              {touched.password && errors.password ? (
-                <ErrorMessage>{errors.password}</ErrorMessage>
-              ) : null}
+                <InputField
+                  placeholder="Password"
+                  secureTextEntry
+                  onChangeText={handleChange("password")}
+                  onBlur={handleBlur("password")}
+                  value={values.password}
+                />
+                {touched.password && errors.password ? (
+                  <ErrorMessage>{errors.password}</ErrorMessage>
+                ) : null}
 
-              <ForgotPasswordContainer>
-                <ForgotPassword>Esqueceu a senha?</ForgotPassword>
-              </ForgotPasswordContainer>
+                <ForgotPasswordContainer>
+                  <ForgotPassword>Esqueceu a senha?</ForgotPassword>
+                </ForgotPasswordContainer>
 
-              <ButtonContainer>
-                <Button>
-                  <ButtonText>Login</ButtonText>
-                </Button>
-              </ButtonContainer>
-              <RegisterAccountContainer>
-                <RegisterAccountText>
-                  Ainda não possui uma conta?
-                </RegisterAccountText>
-                <RegisterAccount>Registre-se</RegisterAccount>
-              </RegisterAccountContainer>
-            </>
-          )}
-        </Formik>
-        <Footer />
-      </ValidationContainer>
-    </Container>
+                <ButtonContainer>
+                  <Button onPress={() => handleSubmit()}>
+                    <ButtonText>Login</ButtonText>
+                  </Button>
+                </ButtonContainer>
+                <RegisterAccountContainer>
+                  <RegisterAccountText>
+                    Ainda não possui uma conta?
+                  </RegisterAccountText>
+                  <RegisterAccount onPress={()=> handleRegister()}>Registre-se</RegisterAccount>
+                </RegisterAccountContainer>
+              </>
+            )}
+          </Formik>
+          <FooterCopy />
+        </ValidationContainer>
+      </Container>
     </SafeContainer>
   );
 }

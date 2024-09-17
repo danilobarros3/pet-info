@@ -1,6 +1,6 @@
 import React, { ReactNode, createContext, useCallback, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { localStorageKeys } from '../config/localStorageKeys'; // Certifique-se de que esse arquivo está correto
+import { localStorageKeys } from '../config/localStorageKeys'; 
 
 interface AuthContextValue {
   signedIn: boolean;
